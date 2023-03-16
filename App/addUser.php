@@ -3,16 +3,15 @@
 
     //tester si le formulaire est submit
     if (isset($_POST['send'])) {
-       // and !empty($_POST['prenom']) and !empty($_POST['email']) and !empty($_POST['mdp']) AND !empty($_POST['fichier'])
-        //tester si les champs sont remplis
-        if (!empty($_POST['nom']) )
-        {
+       
+        if (!empty($_POST['nom']) ){
+
             if (!empty($_POST['prenom'])) {
                 
                 if (!empty($_POST['email'])) {
-                    # code...
+                    
                     if (!empty($_POST['mdp'])) {
-                        # code...
+                        
                         if ($_FILES['fichier']['tmp_name']) {
                             
                             $nom = $_POST['nom'];
@@ -52,9 +51,11 @@
                             
                             
                         }
+
                     }else {
                         echo 'Veuillez remplir mdp';
                     }
+
                 }else {
                     echo 'Veuillez remplir email';
                 }
@@ -62,7 +63,6 @@
             }else {
                 echo 'Veuillez remplir prenom';
             }
-            //stocker le contenu du formulaire
             
         } else {
             echo 'Veuillez remplir nom';
