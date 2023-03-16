@@ -25,8 +25,9 @@
                             }else{
                                 //ajouter en BDD
                                 addUser($bdd, $nom, $prenom, $email,$mdp,$fichier);
-                                //afficher une confirmation d'ajout
+                                //import de l'image
                                 move_uploaded_file($_FILES['fichier']['tmp_name'], $destination.$_FILES['fichier']['name']);
+                                //afficher une confirmation d'ajout
                                 echo $nom . " " . $prenom . " " . $email." a été ajouter";
                             }
                             
@@ -45,7 +46,6 @@
                                 //ajouter en BDD
                                 addUser($bdd, $nom, $prenom, $email,$mdp,$fichier);
                                 //afficher une confirmation d'ajout
-                                move_uploaded_file($_FILES['fichier']['tmp_name'], $destination.$_FILES['fichier']['name']);
                                 echo $nom . " " . $prenom . " " . $email." a été ajouter";
                             }
                             
