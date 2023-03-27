@@ -1,5 +1,5 @@
 <?php
-    //include './utils/connectBdd.php';
+    
     include './manager/ManagerUtilisateur.php';
     //$bddChocoblast = new ConnectBdd('mysql:host=localhost;dbname=chocoblast','root','');
     //tester si le formulaire est submit
