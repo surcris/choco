@@ -1,5 +1,5 @@
 <!-- partie affichage HTML -->
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
                     <label>Prénom</label>
                     <input type="text" name="prenom" pattern="^[a-zA-Z0-9]+$" class="form-control  my-2"  placeholder="Prénom">
                     <label>Email</label>
-                    <input type="text" name="email"  class="form-control  my-2"  placeholder="Email">
+                    <input type="text" name="email" class="form-control  my-2"  placeholder="Email">
                     <label>Mot de passe</label>
                     <input type="password" name="mdp" class="form-control  my-2"  placeholder="Mot de passe">
                     <label>Image</label>
