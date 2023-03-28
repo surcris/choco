@@ -1,7 +1,5 @@
 <?php 
-include './utils/connectBdd.php';
-include './model/utilisateur.php';
-
+//les chemin se font a partir du fichier addUser.php car ces la que la classe manager est appelé.
 
 
 class ManagerUtilisateur extends Utilisateur{

@@ -5,7 +5,7 @@ class Utilisateur{
     private $prenom;
     private $mail;
     private $password;
-    private $image = '../Public/asset/images/default.png';
+    private $image = '../../Public/asset/images/default.png';
     private $statut = 0;
     private $role = 1;
 

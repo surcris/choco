@@ -13,9 +13,10 @@
 </head>
 
 <body>
+    <header></header>
     <div class="login">
         <div class="form-group">
-            <form action="../addUser.php" method="post" enctype="multipart/form-data">
+            <form action="#" method="post" enctype="multipart/form-data">
                 <div class="form-group text-center">
                     <label>Nom</label>
                     <input type="text" name="nom" pattern="^[a-zA-Z0-9]+$" class="form-control  my-2"  placeholder="Nom">
@@ -27,6 +28,7 @@
                     <input type="password" name="mdp" class="form-control  my-2"  placeholder="Mot de passe">
                     <label>Image</label>
                     <input type="file" name="fichier" class="form-control  my-2" >
+                    <!-- <div><?php echo $message?></div> -->
                 </div>
 
                 <div class="col-md-12 text-center">
@@ -36,6 +38,8 @@
             </form>
         </div>
     </div>
+
+    <footer></footer>
 </body>
 
 </html>
