@@ -28,7 +28,7 @@ if (isset($_POST['send'])) {
                         $destination = '../../Public/asset/images/';
                         $user->setImage($destination.$_FILES['fichier']['name']);
                         if($user->getUserByMail()){
-                            echo "Cette utilisateur existe déjà.";
+                            $message = "Cette utilisateur existe déjà.";
                         }else{
                             
                             //ajouter en BDD
@@ -49,7 +49,7 @@ if (isset($_POST['send'])) {
                         //initialisation de l'utilisateur
                         $user = new ManagerUtilisateur($nom,$prenom,$email,$mdp);
                         if($user->getUserByMail()){
-                            echo "Cette utilisateur existe déjà.";
+                            $message = "Cette utilisateur existe déjà.";
                         }else{
                             
                             //ajouter en BDD

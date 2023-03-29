@@ -1,6 +1,7 @@
 <?php 
     include '../vue/header.php';
-    include '../vue/footer.php'
+    include '../vue/footer.php';
+    $message = "";
 ?>
 
 <div class="login">
@@ -21,7 +22,7 @@
                 <div class="col-md-12 text-center">
                     <a href="../controller/controllerAddUser.php" title="About Us"><small class="form-text text-muted text-center">Inscription</small></a>
                 </div>
-                
+                <div><?php echo $message?></div>
             </form>
         </div>
     </div>

@@ -1,7 +1,8 @@
 <!-- partie affichage HTML -->
 <?php 
     include '../vue/header.php';
-    include '../vue/footer.php'
+    include '../vue/footer.php';
+    $message = "";
 ?>
     <div class="login">
         <div class="form-group">
@@ -26,7 +27,7 @@
                 <div class="col-md-12 text-center">
                     <a href="../controller/controllerConnection.php" title="About Us"><small class="form-text text-muted text-center">Connexion</small></a>
                 </div>
-                
+                <div><?php echo $message?></div>
             </form>
         </div>
     </div>
