@@ -1,21 +1,60 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(97, 133, 133);
-    height: 100vh;
+    background-color: rgb(117, 161, 161);
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+}
+
+header{
+    background-color: brown;
+    width: 100%;
+    height: 5vh;
+}
+
+.login ,.signin{
+    display: flex;
     justify-content: center;
-  
-  }
-.login{
-    width: 360px;
-    height: min-content;
-    padding: 20px;
+    align-items: center;
+    width: 100%;
+    min-height: 85vh;
+    border-radius: 12px;
+    
+    
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 85vh;
+    border-radius: 12px;
+    
+    
+}
+.login > .form-group,.signin > .form-group{
+    padding: 10px;
+    width: 25%;
+    height: auto;
     border-radius: 12px;
     background-color: aliceblue;
+    
 }
-.login label{
+.login label,.signin label{
     font-size: large;
     font-weight: bold;
+}
+
+
+
+
+footer{
+    position: relative;
+    bottom: 0;
+    background-color: brown;
+    width: 100vw;
+    height: 10vh;
 }

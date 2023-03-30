@@ -1,9 +1,9 @@
 <?php
-include '../utils/connectBdd.php';
-include '../model/utilisateur.php';
-include '../manager/ManagerUtilisateur.php';
+include './app/utils/connectBdd.php';
+include './app/model/utilisateur.php';
+include './app/manager/ManagerUtilisateur.php';
 
-
+$message = "";
 if (isset($_POST['send'])) {
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     if (!empty($_POST['nom']) ){
@@ -79,7 +79,7 @@ if (isset($_POST['send'])) {
     }
 }
 
-include '../vue/header.php';
-include '../vue/view_add_user.php';
-include '../vue/footer.php';
+include './app/vue/header.php';
+include './app/vue/view_add_user.php';
+include './app/vue/footer.php';
 ?>

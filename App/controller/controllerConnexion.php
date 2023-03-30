@@ -1,9 +1,10 @@
 <?php
-include '../utils/connectBdd.php';
-include '../model/utilisateur.php';
-include '../manager/ManagerUtilisateur.php';
+include './app/utils/connectBdd.php';
+include './app/model/utilisateur.php';
+include './app/manager/ManagerUtilisateur.php';
+session_start();
 
-
+$message = "";
 if (isset($_POST['send'])) {
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
@@ -24,6 +25,9 @@ if (isset($_POST['send'])) {
                 //$message = $user->getUserByMail()[0]["password_utilisateur"];
                 if (password_verify($mdp, $user->getUserByMail()[0]["password_utilisateur"])) {
                     $message = "Mot de passe correct";
+                    
+                    $_SESSION['key'] = $user->getUserByMail()[0]["id_utilisateur"];
+                    header('Location:http://localhost/choco/accueil');
                 } else {
                     $message = "Mot de passe incorrect";
                 }
@@ -42,7 +46,7 @@ if (isset($_POST['send'])) {
 }
         
     
-include '../vue/header.php';
-include '../vue/view_connection.php';
-include '../vue/footer.php';
+include './app/vue/header.php';
+include './app/vue/view_connexion.php';
+include './app/vue/footer.php';
 ?>
