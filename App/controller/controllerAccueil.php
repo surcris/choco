@@ -7,7 +7,7 @@ include './app/manager/ManagerUtilisateur.php';
 
 
 if (isset($_SESSION['key'])) {
-    $message = $_SESSION['key'];
+    $message = "Vous êtes connecté";
 }else{
     $message = "Erreur avec la variable session";
 }

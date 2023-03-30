@@ -26,7 +26,7 @@ if (isset($_POST['send'])) {
                 if (password_verify($mdp, $user->getUserByMail()[0]["password_utilisateur"])) {
                     $message = "Mot de passe correct";
                     
-                    $_SESSION['key'] = $user->getUserByMail()[0]["id_utilisateur"];
+                    $_SESSION['key'] = $user->getUserByMail()[0]["mail_utilisateur"];
                     header('Location:http://localhost/choco/accueil');
                 } else {
                     $message = "Mot de passe incorrect";

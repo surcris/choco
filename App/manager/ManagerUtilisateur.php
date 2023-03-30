@@ -10,8 +10,28 @@ class ManagerUtilisateur extends Utilisateur{
             $bdd = ConnectBdd::getBdd('mysql:host=localhost;dbname=chocoblast','root','');
             $mail = $this->getEmail();
 
-            $req = $bdd->prepare('SELECT id_utilisateur,nom_utilisateur, prenom_utilisateur, mail_utilisateur, password_utilisateur,image_utilisateur,id_roles,statut_utilisateur FROM utilisateur WHERE mail_utilisateur = ?');
+            $req = $bdd->prepare('SELECT id_utilisateur,nom_utilisateur, prenom_utilisateur, mail_utilisateur, password_utilisateur,image_utilisateur,id_roles,statut_utilisateur 
+            FROM utilisateur WHERE mail_utilisateur = ?');
             $req->bindParam(1, $mail, PDO::PARAM_STR);
+            $req->execute();
+
+            $data = $req->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+
+        } catch (Exception $e) {
+            die('Erreur getUserByMail : '.$e->getMessage());
+        }
+
+    }
+
+    public function getUserById(){
+        try {
+            $bdd = ConnectBdd::getBdd('mysql:host=localhost;dbname=chocoblast','root','');
+            $id = $this->getId();
+
+            $req = $bdd->prepare('SELECT id_utilisateur,nom_utilisateur, prenom_utilisateur, mail_utilisateur, password_utilisateur,image_utilisateur,id_roles,statut_utilisateur 
+            FROM utilisateur WHERE id_utilisateur = ?');
+            $req->bindParam(1, $id, PDO::PARAM_STR);
             $req->execute();
 
             $data = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -51,6 +71,33 @@ class ManagerUtilisateur extends Utilisateur{
 
             $data = $req->fetchAll(PDO::FETCH_ASSOC);
             return $data;
+
+        } catch (Exception $e) {
+            die('Erreur Insert : '.$e->getMessage());
+        }
+    }
+
+    public function updateUserByMail($email){
+        try {
+            
+            $bdd = ConnectBdd::getBdd('mysql:host=localhost;dbname=chocoblast','root','');
+
+            $nom = $this->getNom();
+            $prenom = $this->getPrenom();
+            $mail = $this->getEmail();
+            $password = password_hash($this->getPassword(), PASSWORD_DEFAULT);;
+            
+
+
+            $req = $bdd->prepare('UPDATE utilisateur SET nom_utilisateur = ?, prenom_utilisateur = ?, mail_utilisateur = ?, password_utilisateur = ? WHERE mail_utilisateur = ?');
+            $req->bindParam(1, $nom, PDO::PARAM_STR);
+            $req->bindParam(2, $prenom, PDO::PARAM_STR);
+            $req->bindParam(3, $mail, PDO::PARAM_STR);
+            $req->bindParam(4, $password, PDO::PARAM_STR);
+            $req->bindParam(5, $email, PDO::PARAM_STR);
+
+            $req->execute();
+
 
         } catch (Exception $e) {
             die('Erreur Insert : '.$e->getMessage());
