@@ -28,6 +28,7 @@ header{
 }
 .container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -35,6 +36,12 @@ header{
     border-radius: 12px;
     
     
+}
+.container > .form-group{
+    background-color: rgb(247, 247, 247);
+    padding: 10px;
+    border-radius: 12px;
+    width: 25%;
 }
 .login > .form-group,.signin > .form-group{
     padding: 10px;
