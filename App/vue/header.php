@@ -18,14 +18,29 @@
             <li class="nav-item">
                 <a class="nav-link active" href="accueil">Accueil</a>
             </li>
+            <?php
+            if (!isset($_SESSION['key'])) {
+            ?>
             <li class="nav-item">
                 <a class="nav-link" href="inscription">Inscription</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="connexion">Connexion</a>
             </li>
+            <?php
+            } 
+            ?>
+            <?php
+            if (isset($_SESSION['key'])) {
+            ?>
             <li class="nav-item">
                 <a class="nav-link" href="profile">Profile</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./App/controller/controllerLogout.php">Déconnexion</a>
+            </li>
+            <?php
+            } 
+            ?>
         </ul>
     </header>
