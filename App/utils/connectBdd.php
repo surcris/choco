@@ -8,10 +8,11 @@
 
 class ConnectBdd
 {
-   
+    
+    static public function getBdd(){
+        include './env.php';
 
-    static public function getBdd($dbName,$user,$mdp){
-        return new PDO($dbName,$user,$mdp,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));;
+        return new PDO("mysql:host=$host;dbname=$database", $login, $password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));;
     }
 }
 
