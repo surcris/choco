@@ -1,5 +1,7 @@
+
 <?php
-if (isset($_SESSION['key'])) {
+include './app/vue/header.php';
+if (isset($_SESSION['mail'])) {
 ?>
 
 
@@ -33,9 +35,10 @@ if (isset($_SESSION['key'])) {
 
 <?php
 } else {
-    header('Location:http://localhost/choco/404');
+    header('Location: ./404');
 }
 ?>
+
 
 <script>
     let etat = true;
@@ -53,3 +56,7 @@ if (isset($_SESSION['key'])) {
         document.getElementById("mdp").disabled = etat;
     }
 </script>
+
+<?php 
+include './app/vue/footer.php';
+?>

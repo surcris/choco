@@ -1,9 +1,17 @@
 <?php
-include './app/utils/connectBdd.php';
-include './app/model/utilisateur.php';
-include './app/manager/ManagerUtilisateur.php';
+// include './app/utils/connectBdd.php';
+// include './app/model/utilisateur.php';
+// include './app/manager/ManagerUtilisateur.php';
 
 $message = "";
+
+function nettoyer($input) {
+    $input = trim($input);
+    $input = stripslashes($input);
+    $input = htmlspecialchars($input);
+    return $input;
+}
+
 if (isset($_POST['send'])) {
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     if (!empty($_POST['nom']) ){
@@ -16,9 +24,11 @@ if (isset($_POST['send'])) {
                     
                     if ($_FILES['fichier']['tmp_name']) {
                         
-                        $nom = htmlEntities(strip_tags($_POST['nom']), ENT_QUOTES);
-                        $prenom = htmlEntities(strip_tags($_POST['prenom']), ENT_QUOTES);
-                        $mdp = htmlEntities(strip_tags($_POST['mdp']), ENT_QUOTES);
+                        $nom = nettoyer($_POST['nom']);
+                        $prenom = nettoyer($_POST['prenom']);
+                        $mdp = nettoyer($_POST['mdp']);
+                        $email = nettoyer($_POST['email']);
+                        
                         $fichier = $_FILES['fichier'];
                         $message = $nom . " " . $prenom . " " . $email." a été ajouter";
                         //initialisation de l'utilisateur
@@ -79,7 +89,7 @@ if (isset($_POST['send'])) {
     }
 }
 
-include './app/vue/header.php';
+
 include './app/vue/view_add_user.php';
-include './app/vue/footer.php';
+
 ?>

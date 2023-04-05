@@ -1,8 +1,11 @@
 <?php
-// include './App/utils/connectBdd.php';
-// include './App/manager/ManagerUtilisateur.php';
-// include './App/model/utilisateur.php';
-// include './App/Api/apiUtilisateur.php';
+session_start();
+
+include './App/utils/connectBdd.php';
+include './App/model/utilisateur.php';
+include './App/manager/ManagerUtilisateur.php';
+
+//include './App/Api/apiUtilisateur.php';
 
 
 // $api = new ApiUtilisateur('','','','');
@@ -32,6 +35,12 @@ switch ($path) {
         break;
     case $path === "/choco/profile" :
         include './app/controller/controllerProfile.php';
+        break;
+    case $path === "/choco/logout" :
+        include './app/controller/controllerLogout.php';
+        break;
+    case $path === "/choco/404" :
+        include './app/controller/controller404.php';
         break;
     default:
         include './app/controller/controller404.php';

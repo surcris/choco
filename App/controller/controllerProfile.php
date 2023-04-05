@@ -1,12 +1,14 @@
 <?php
-include './app/utils/connectBdd.php';
-include './app/model/utilisateur.php';
-include './app/manager/ManagerUtilisateur.php';
-session_start();
+// include './app/utils/connectBdd.php';
+// include './app/model/utilisateur.php';
+// include './app/manager/ManagerUtilisateur.php';
+
+
+
 
 $message = "";
-if (isset($_SESSION['key'])) {
-    $user = new ManagerUtilisateur('','',$_SESSION['key'],'');
+if (isset($_SESSION['mail'])) {
+    $user = new ManagerUtilisateur('','',$_SESSION['mail'],'');
     if ($user->getUserByMail()) {
         $user->setNom($user->getUserByMail()[0]["nom_utilisateur"]);
         $user->setPrenom($user->getUserByMail()[0]["prenom_utilisateur"]);
@@ -34,8 +36,8 @@ if (isset($_POST['send'])) {
                     
 
                     $user = new ManagerUtilisateur($nom, $prenom, $email, $mdp);
-                    $user->updateUserByMail($_SESSION['key']);
-                    $_SESSION['key'] = $email;
+                    $user->updateUserByMail($_SESSION['mail']);
+                    $_SESSION['mail'] = $email;
                 } else {
                     $message = 'Veuillez remplir mdp';
                 }
@@ -53,7 +55,7 @@ if (isset($_POST['send'])) {
 
         
     
-include './app/vue/header.php';
-include './app/vue/view_profile.php';
-include './app/vue/footer.php';
+
+include './App/vue/view_profile.php';
+
 ?>

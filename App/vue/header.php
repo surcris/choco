@@ -19,7 +19,7 @@
                 <a class="nav-link active" href="accueil">Accueil</a>
             </li>
             <?php
-            if (!isset($_SESSION['key'])) {
+            if (!isset($_SESSION['mail'])) {
             ?>
             <li class="nav-item">
                 <a class="nav-link" href="inscription">Inscription</a>
@@ -31,13 +31,13 @@
             } 
             ?>
             <?php
-            if (isset($_SESSION['key'])) {
+            if (isset($_SESSION['mail'])) {
             ?>
             <li class="nav-item">
-                <a class="nav-link" href="profile">Profile</a>
+                <a class="nav-link" href="./profile">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./App/controller/controllerLogout.php">Déconnexion</a>
+                <a class="nav-link" href="./logout">Déconnexion</a>
             </li>
             <?php
             } 

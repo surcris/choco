@@ -1,3 +1,7 @@
+<?php 
+include './app/vue/header.php';
+?>
+
 <div class="signin">
     <div class="form-group">
         <form action="#" method="post" enctype="multipart/form-data">
@@ -19,3 +23,6 @@
         </form>
     </div>
 </div>
+<?php 
+include './app/vue/footer.php';
+?>

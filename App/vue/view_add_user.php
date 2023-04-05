@@ -1,4 +1,6 @@
-
+<?php 
+include './app/vue/header.php';
+?>
     <div class="login">
         <div class="form-group">
             <form action="#" method="post" enctype="multipart/form-data">
@@ -27,3 +29,6 @@
         </div>
     </div>
 
+<?php 
+include './app/vue/footer.php';
+?>
